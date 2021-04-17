@@ -8,7 +8,6 @@ import (
   "github.com/AsynkronIT/protoactor-go/actor"
   "github.com/JesseleDuran/osm-graph/graph"
   "github.com/JesseleDuran/osm-graph/graph/shortest_path/dijkstra"
-  "github.com/golang/geo/s2"
 )
 
 type City struct {
@@ -27,14 +26,14 @@ func (c *City) TellSync(msg interface{}) interface{} {
 func (c *City) Receive(context actor.Context) {
   switch msg := context.Message().(type) {
   case *actor.Started:
-    c.Graph = graph.FromJSONGraphFileStream("downloads/osm-graph-1.json")
-    log.Println("done")
+    log.Println("building graph")
+    c.Graph = graph.BuildFromJsonFile("downloads/osm-graph-medellin-name-17." +
+      "json", c.Crimes.SetWeight)
+    log.Println("done graph")
 
   case Route:
-    log.Println("ADA", msg.Origin)
-    s := s2.CellIDFromToken("94ce595164")
-    e := s2.CellIDFromToken("94ce50b26c")
-    _, previous := dijkstra.DijkstraFromToken(s, e, c.Graph)
-    context.Respond(previous)
+    d := dijkstra.Dijkstra{c.Graph}
+    result := d.FromCoordinates(msg.Origin, msg.Destination)
+    context.Respond(result)
   }
 }

@@ -7,6 +7,7 @@ import (
   "io/ioutil"
   "log"
   "os"
+  "path/filepath"
   "secure-route-api/s3"
   "strconv"
   "strings"
@@ -39,14 +40,17 @@ type Crimes struct {
 func FromS3(client s3.Client, b s3.Bucket) (Crimes, error) {
   crimes := make([]Crime, 0)
   files := client.GetAllObjectKeys(b.Name)
+
   for _, file := range files {
     log.Println("Downloading file:", file)
-    //err := client.Get(b.Name, file, "downloads/"+file)
-    //if err != nil {
-    //  log.Printf("couldnt download file %s, err:", file)
-    //  continue
-    //}
-    crimes = append(crimes, FromCSVFile("downloads/"+file)...)
+    if filepath.Ext(file) == ".csv" && file != "output1.csv" {
+      //err := client.Get(b.Name, file, "downloads/"+file)
+      //if err != nil {
+      //  log.Printf("couldnt download file %s, err:", file)
+      //  continue
+      //}
+      crimes = append(crimes, FromCSVFile("downloads/"+file)...)
+    }
   }
   log.Printf("got %d crimes", len(crimes))
   return Crimes{
@@ -67,7 +71,7 @@ func FromCSVFile(path string) []Crime {
       break
     }
     if err != nil {
-      log.Println("error FromCSVFile: ", err)
+      log.Println("error FromCSVFile: ", err.Error(), path)
       continue
     }
     crime, err := fromCsvValues(record)

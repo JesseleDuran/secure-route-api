@@ -4,8 +4,14 @@ github.com/AsynkronIT/protoactor-go v0.0.0-20200815184336-b225d28383f2 h1:bU0pYL
 github.com/AsynkronIT/protoactor-go v0.0.0-20200815184336-b225d28383f2/go.mod h1:8kL0/lZO4SCgQJiHxbKcZFvulPzd6uFF7ilqvz2SwFg=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/DataDog/datadog-go v3.2.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
-github.com/JesseleDuran/osm-graph v0.0.0-20201029034635-44503ae69b63 h1:vJAl7bPzOQVq+FX7PFI+4PRY5IPYBpFodPn9MifBVLo=
-github.com/JesseleDuran/osm-graph v0.0.0-20201029034635-44503ae69b63/go.mod h1:cgl39vWngylmBZ2cGOppdN92VUUnQYjXIQb69knD5Ok=
+github.com/JesseleDuran/osm-graph v0.0.0-20210411194808-e2ac1b55b9ea h1:TX7c/dS+NoQfph4b6JXGz5PjY5PapA+40QBUTB0zS7A=
+github.com/JesseleDuran/osm-graph v0.0.0-20210411194808-e2ac1b55b9ea/go.mod h1:7Jy0xX8uwbNsuj7JJBIt9lgfIiDgkrjVDaPMmjAbp5M=
+github.com/JesseleDuran/osm-graph v0.0.0-20210411222137-7c6f40d2b177 h1:ZL5xrGJbZ02VTjvcg7KedF5vC97O6nCHL/WOe5lpCvE=
+github.com/JesseleDuran/osm-graph v0.0.0-20210411222137-7c6f40d2b177/go.mod h1:7Jy0xX8uwbNsuj7JJBIt9lgfIiDgkrjVDaPMmjAbp5M=
+github.com/JesseleDuran/osm-graph v0.0.0-20210412000757-29b03aa61ae5 h1:Yqich2E0vzO1C3K/aiU2EC8fRCl5WfttdxVrqDHJhI0=
+github.com/JesseleDuran/osm-graph v0.0.0-20210412000757-29b03aa61ae5/go.mod h1:7Jy0xX8uwbNsuj7JJBIt9lgfIiDgkrjVDaPMmjAbp5M=
+github.com/JesseleDuran/osm-graph v0.0.0-20210417180245-2b7106517de3 h1:IPFQAvIxTqrcmV/ZmpOWYCd+wlWg0g74XRwSjvYADHc=
+github.com/JesseleDuran/osm-graph v0.0.0-20210417180245-2b7106517de3/go.mod h1:7Jy0xX8uwbNsuj7JJBIt9lgfIiDgkrjVDaPMmjAbp5M=
 github.com/Workiva/go-datastructures v1.0.50 h1:slDmfW6KCHcC7U+LP3DDBbm4fqTwZGn1beOFPfGaLvo=
 github.com/Workiva/go-datastructures v1.0.50/go.mod h1:Z+F2Rca0qCsVYDS8z7bAGm8f3UkzuWYS/oBZz5a7VVA=
 github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e/go.mod h1:3U/XgcO3hCbHZ8TKRvWD2dDTCfh9M9ya+I9JpbB7O8o=
