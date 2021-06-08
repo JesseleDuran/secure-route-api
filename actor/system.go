@@ -27,7 +27,7 @@ func NewSystem(cities map[int]city.City, crimes *crime.Crimes) System {
 
 func (system *System) TellSync(msg interface{}) (interface{}, error) {
   context := actor.EmptyRootContext
-  future := context.RequestFuture(system.PID, msg, 7*time.Second)
+  future := context.RequestFuture(system.PID, msg, 70*time.Second)
   return future.Result()
 }
 
@@ -50,10 +50,20 @@ func (system *System) Receive(context actor.Context) {
       system.Children[c.ID] = context.Spawn(props)
     }
 
+  case RouteCrimes:
+    child := system.Children[msg.CityID]
+    future := actor.EmptyRootContext.RequestFuture(child, msg, 70*time.Second)
+    r, _ := future.Result()
+    context.Respond(r)
+
   case Route:
     child := system.Children[msg.CityID]
     future := actor.EmptyRootContext.RequestFuture(child, msg, 70*time.Second)
     r, _ := future.Result()
     context.Respond(r)
+
+  case GradientMapGeoJSON:
+    child := system.Children[msg.CityID]
+    actor.EmptyRootContext.Request(child, msg)
   }
 }

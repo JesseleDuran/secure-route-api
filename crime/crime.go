@@ -148,3 +148,8 @@ func (cc Crimes) SetWeight(a, b coordinates.Coordinates) float64 {
   crimes1 := cc.tree.Search(b.Lat, b.Lng, radius)
   return float64(len(crimes) + len(crimes1))
 }
+
+func (cc Crimes) FindByRadius(a coordinates.Coordinates, radius float64) []Crime {
+  crimes := cc.tree.Search(a.Lat, a.Lng, radius)
+  return crimes
+}

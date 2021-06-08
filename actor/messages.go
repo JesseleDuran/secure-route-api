@@ -6,9 +6,21 @@ import (
 )
 
 // Direction
+type RouteCrimes struct {
+  CityID      int
+  Origin      coordinates.Coordinates
+  Destination coordinates.Coordinates
+  Mode        transport.Mode
+}
+
+// Direction
 type Route struct {
   CityID      int
   Origin      coordinates.Coordinates
   Destination coordinates.Coordinates
   Mode        transport.Mode
+}
+
+type GradientMapGeoJSON struct {
+  CityID int
 }
