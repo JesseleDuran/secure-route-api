@@ -75,7 +75,7 @@ func (handler PathHandler) ServeHTTP(ctx *gin.Context) {
 	resCrimes := make([]api.Crime, 0)
 	for i, id := range crimesIDs {
 		resCrimes = append(resCrimes, handler.Crimes[id])
-		if i == 8 {
+		if i == 15 {
 			break
 		}
 	}

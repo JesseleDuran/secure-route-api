@@ -39,7 +39,7 @@ func main() {
 	// Raise http router.
 	router := setupRoutes(graphSource, service.NewGoogleService())
 	s := &http.Server{
-		Addr:           ":8080",
+		Addr:           ":" + config.Config.Port,
 		Handler:        router,
 		MaxHeaderBytes: http.DefaultMaxHeaderBytes,
 	}

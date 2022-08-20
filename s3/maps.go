@@ -23,7 +23,7 @@ func NewS3GraphInMemoryProvider(client api.S3Client) api.GraphInMemoryProvider {
 // Fetch builds a graph from a serialized file.
 func (gp GraphInMemoryProvider) Fetch(content string, mode osm.Mode) (api.Graph, error) {
 	path := config.Config.S3DownloadPath
-	item := fmt.Sprintf("%s-%s-%s.gob", content, mode.ToString(), config.Config.Country)
+	item := fmt.Sprintf("%s-%s-%s-2.gob", content, mode.ToString(), config.Config.Country)
 	err := gp.client.Get(
 		config.Config.S3BucketName,
 		item,

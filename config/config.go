@@ -7,12 +7,14 @@ import (
 var Config config
 
 type config struct {
+	Port           string
 	Country        string
 	S3BucketName   string
 	S3DownloadPath string
 }
 
 func Initialize() {
+	Config.Port = os.Getenv("PORT")
 	Config.Country = Country()
 	Config.S3BucketName = S3BucketName()
 	Config.S3DownloadPath = S3DownloadPath()
