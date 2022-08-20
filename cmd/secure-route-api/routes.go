@@ -5,6 +5,7 @@ import (
 	handler "github.com/JesseleDuran/secure-route-api/http"
 	"github.com/JesseleDuran/secure-route-api/s3"
 	"github.com/JesseleDuran/secure-route-api/service"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,6 +15,7 @@ func setupRoutes(dataSource graph.Source, service service.Google) *gin.Engine {
 	router := gin.Default()
 	router.Use(
 		gin.Recovery(),
+		cors.Default(),
 	)
 	prefixv1 := router.Group("api/secure-route/v1")
 	crimes := s3.NewCrimesInMemoryProvider(s3.GetClient())
