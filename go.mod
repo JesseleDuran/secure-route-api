@@ -1,5 +1,6 @@
 module github.com/JesseleDuran/secure-route-api
 
+// +heroku goVersion go1.13
 go 1.13
 
 require (
