@@ -1,5 +1,7 @@
 github.com/JesseleDuran/gograph v1.0.3 h1:7TUoe3syOpAVlMFb9K1xP1egsJXQgfVu6XgSDCaxeY4=
 github.com/JesseleDuran/gograph v1.0.3/go.mod h1:s24vtc0xjV4hDLPt1Uk+pCKFtmuYyu4/oPhIu5EbaBM=
+github.com/JesseleDuran/gograph v1.0.5-0.20220820132053-099a3b45c42c h1:d01tTZhNvEBfsIdWxPbGMr89xRrIbjb3md/08e0IEdc=
+github.com/JesseleDuran/gograph v1.0.5-0.20220820132053-099a3b45c42c/go.mod h1:s24vtc0xjV4hDLPt1Uk+pCKFtmuYyu4/oPhIu5EbaBM=
 github.com/datadog/czlib v0.0.0-20160811164712-4bc9a24e37f2/go.mod h1:2yDaWzisHKoQoxm+EU4YgKBaD7g1M0pxy7THWG44Lro=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

@@ -4,13 +4,15 @@ import (
 	"context"
 	"fmt"
 	graph "github.com/JesseleDuran/gograph"
+	"github.com/JesseleDuran/gograph/nearest_edge"
 	osm "github.com/JesseleDuran/gograph/osm/pbf"
 	geojson "github.com/paulmach/go.geojson"
 )
 
 //go:generate mockery --name Graph
 type Graph interface {
-	DijkstraPathCoord(source, target graph.Coordinate) (float32, geojson.FeatureCollection, []uint64)
+	DijkstraPathCoord(source, target graph.Coordinate, node nearest_edge.Node) (float32, geojson.FeatureCollection, []uint64)
+	BuildEdgeIndex() nearest_edge.Node
 }
 
 //go:generate mockery --name GraphInMemoryProvider
@@ -20,7 +22,8 @@ type GraphInMemoryProvider interface {
 
 //go:generate mockery --name GraphRepository
 type GraphRepository interface {
-	Path(ctx context.Context, origin, destination [2]float64) (float32, geojson.FeatureCollection, []uint64)
+	Path(ctx context.Context, origin, destination [2]float64, node nearest_edge.Node) (float32, geojson.FeatureCollection, []uint64)
+	Index() nearest_edge.Node
 }
 
 //go:generate mockery --name S3Client

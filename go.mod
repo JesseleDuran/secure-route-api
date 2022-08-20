@@ -3,7 +3,7 @@ module github.com/JesseleDuran/secure-route-api
 go 1.13
 
 require (
-	github.com/JesseleDuran/gograph v1.0.3
+	github.com/JesseleDuran/gograph v1.0.5-0.20220820132053-099a3b45c42c
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/golang/geo v0.0.0-20210211234256-740aa86cb551

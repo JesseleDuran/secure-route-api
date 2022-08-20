@@ -70,16 +70,20 @@ func (handler PathHandler) ServeHTTP(ctx *gin.Context) {
 			return
 		}
 		repo, _ := handler.GraphSource.GraphByModeAndContent(mode, content)
-		d, path, crimesIDs = repo.Path(context.Background(), [2]float64{latOri, lngOri}, [2]float64{latDest, lngDest})
+		d, path, crimesIDs = repo.Path(context.Background(), [2]float64{latOri, lngOri}, [2]float64{latDest, lngDest}, repo.Index())
 	}
 	resCrimes := make([]api.Crime, 0)
-	for _, id := range crimesIDs {
+	for i, id := range crimesIDs {
 		resCrimes = append(resCrimes, handler.Crimes[id])
+		if i == 8 {
+			break
+		}
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{
-		"distance": d,
-		"path":     path,
-		"crimes":   resCrimes,
+		"distance":     d,
+		"total_crimes": len(crimesIDs),
+		"path":         path,
+		"crimes":       resCrimes,
 	})
 }
